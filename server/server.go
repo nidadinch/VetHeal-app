@@ -1,9 +1,9 @@
 package server
 
 import (
-	"fmt"
 	"net/http"
 	"seniorproject-backend/controller"
+	"seniorproject-backend/repository"
 	"seniorproject-backend/service"
 
 	"github.com/gorilla/mux"
@@ -17,7 +17,7 @@ func NewServer() *Server {
 }
 
 func (s *Server) StartServer() error {
-	repository := repository.newAnimalRepository()
+	repository := repository.NewAnimalRepository()
 	service := service.NewAnimalService(repository)
 	controller := controller.NewAnimalController(service)
 	router := mux.NewRouter()
@@ -31,6 +31,6 @@ func (s *Server) StartServer() error {
 	// GET `/action/:id` = Returns `Actionable`
 	router.HandleFunc("/action/{id}", controller.GetActionable).Methods("GET")
 
-	err := http.ListenAndServe(fmt.Sprintf(":%d", router), nil)
+	err := http.ListenAndServe(":8000", router)
 	return err
 }

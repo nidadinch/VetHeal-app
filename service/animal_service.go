@@ -16,7 +16,7 @@ type AnimalService struct {
 }
 
 func (s *AnimalService) Animals() (*model.AnimalsResponse, error) {
-	animals, err := s.Repository.GetAllAnimals()
+	animals, err := s.Repository.GetAnimals()
 	m := model.AnimalsResponse{}
 
 	for _, v := range animals {
@@ -26,7 +26,7 @@ func (s *AnimalService) Animals() (*model.AnimalsResponse, error) {
 }
 
 func (s *AnimalService) Symptoms() (*model.SymptomsResponse, error) {
-	sypmtoms, err := s.Repository.GetAllSypmtoms()
+	sypmtoms, err := s.Repository.GetSymptoms()
 	m := model.SymptomsResponse{}
 
 	for _, v := range sypmtoms {
