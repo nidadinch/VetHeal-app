@@ -8,7 +8,7 @@ import (
 type IAnimalService interface {
 	Animals() (*model.AnimalsResponse, error)
 	Symptoms(animalId string) (*model.SymptomsResponse, error)
-	Actionables(id string) (*model.Actionable, error)
+	Actionables(id string) (interface{}, error)
 }
 
 type AnimalService struct {
@@ -35,14 +35,19 @@ func (s *AnimalService) Symptoms(animalId string) (*model.SymptomsResponse, erro
 	return &m, err
 }
 
-func (s *AnimalService) Actionables(id string) (*model.Actionable, error) {
-	// actionable, err := s.Repository.GetActionable()
-	// m := model.Actionable{}
+func (s *AnimalService) Actionables(id string) (interface{}, error) {
+	actionableType := s.Repository.GetActionableType(id)
 
-	// m = *actionable
-	// return &m, err
-	return &model.Actionable{}, nil
+	if actionableType == "Question" {
+		actionableQuestion, err := s.Repository.GetActionableQuestion(id)
+		return *actionableQuestion, err
 
+	} else {
+		actionableResult, err := s.Repository.GetActionableResult(id)
+		return *actionableResult, err
+	}
+
+	return nil, nil
 }
 
 func NewAnimalService(repository repository.IAnimal) IAnimalService {

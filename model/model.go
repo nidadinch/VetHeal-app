@@ -17,13 +17,11 @@ type Symptom struct {
 	Initial_action_id int    `json:"initial_action_id"`
 }
 
-type Actionable struct {
+type Action struct {
 	Id              int    `json:"id"`
 	Actionable_type string `json:"type"`
 	Created_at      string `json:"created_at"`
 	Updated_at      string `json:"updated_at"`
-	Question        string `json:"question"`
-	Result          string `json:"result"`
 }
 
 type Question struct {
@@ -59,5 +57,28 @@ type RiskCategory struct {
 	Rating        string `json:"rating"`
 }
 
+type ActionableQuestion struct {
+	Id              int      `json:"id"`
+	Actionable_type string   `json:"type"`
+	Created_at      string   `json:"created_at"`
+	Updated_at      string   `json:"updated_at"`
+	Question        Question `json:"question"`
+}
+
+type ActionableResult struct {
+	Id              int    `json:"id"`
+	Actionable_type string `json:"type"`
+	Created_at      string `json:"created_at"`
+	Updated_at      string `json:"updated_at"`
+	Result          Result `json:"result"`
+}
+type Actionable struct {
+	Id              int      `json:"id"`
+	Actionable_type string   `json:"type"`
+	Created_at      string   `json:"created_at"`
+	Updated_at      string   `json:"updated_at"`
+	Question        Question `json:"question"`
+	Result          Result   `json:"result"`
+}
 type AnimalsResponse []Animal
 type SymptomsResponse []Symptom
