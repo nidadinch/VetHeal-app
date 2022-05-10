@@ -1,7 +1,6 @@
 package service
 
 import (
-	"fmt"
 	"seniorproject-backend/model"
 	"seniorproject-backend/repository"
 )
@@ -9,7 +8,7 @@ import (
 type IAnimalService interface {
 	Animals() (*model.AnimalsResponse, error)
 	Symptoms(animalId string) (*model.SymptomsResponse, error)
-	Actionables() (*model.Actionable, error)
+	Actionables(id string) (*model.Actionable, error)
 }
 
 type AnimalService struct {
@@ -27,7 +26,6 @@ func (s *AnimalService) Animals() (*model.AnimalsResponse, error) {
 }
 
 func (s *AnimalService) Symptoms(animalId string) (*model.SymptomsResponse, error) {
-	fmt.Println(animalId)
 	sypmtoms, err := s.Repository.GetSymptoms(animalId)
 	m := model.SymptomsResponse{}
 
@@ -35,10 +33,9 @@ func (s *AnimalService) Symptoms(animalId string) (*model.SymptomsResponse, erro
 		m = append(m, *v)
 	}
 	return &m, err
-	//return &model.SymptomsResponse{}, nil
 }
 
-func (s *AnimalService) Actionables() (*model.Actionable, error) {
+func (s *AnimalService) Actionables(id string) (*model.Actionable, error) {
 	// actionable, err := s.Repository.GetActionable()
 	// m := model.Actionable{}
 

@@ -58,7 +58,9 @@ func (c *AnimalController) GetSymptoms(w http.ResponseWriter, r *http.Request) {
 }
 
 func (c *AnimalController) GetActionable(w http.ResponseWriter, r *http.Request) {
-	response, err := c.service.Actionables()
+	vars := mux.Vars(r)
+	id := vars["id"]
+	response, err := c.service.Actionables(id)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))

@@ -13,6 +13,7 @@ type Animal struct {
 type IAnimal interface {
 	GetAnimals() ([]*model.Animal, error)
 	GetSymptoms(animalId string) ([]*model.Symptom, error)
+	GetActionable(id string) (*model.Actionable, error)
 }
 
 func (a *Animal) GetAnimals() ([]*model.Animal, error) {
@@ -59,6 +60,29 @@ func (a *Animal) GetSymptoms(animalId string) ([]*model.Symptom, error) {
 		symptoms = append(symptoms, &model.Symptom{Id: id, Animal_id: animal_id, Description: description, Created_at: created_at, Updated_at: updated_at, Initial_action_id: initial_action_id})
 	}
 	return symptoms, err
+}
+
+func (a *Animal) GetActionable(id string) (*model.Actionable, error) {
+	rows, err := a.DB.Query("SELECT * FROM symptom WHERE animal_id = $1", id)
+	database.CheckErr(err)
+	var actionable *model.Actionable
+
+	for rows.Next() {
+		var id int
+		var animal_id int
+		var description string
+		var created_at string
+		var updated_at string
+		var initial_action_id int
+
+		err = rows.Scan(&id, &animal_id, &description, &created_at, &updated_at, &initial_action_id)
+
+		// check errors
+		database.CheckErr(err)
+
+		actionable = &model.Actionable{Id: id}
+	}
+	return actionable, err
 }
 
 func NewAnimalRepository() IAnimal {

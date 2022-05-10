@@ -20,6 +20,8 @@ type Symptom struct {
 type Actionable struct {
 	Id              int    `json:"id"`
 	Actionable_type string `json:"type"`
+	Created_at      string `json:"created_at"`
+	Updated_at      string `json:"updated_at"`
 	Question        string `json:"question"`
 	Result          string `json:"result"`
 }
