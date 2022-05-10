@@ -4,6 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 	"seniorproject-backend/service"
+
+	"github.com/gorilla/mux"
 )
 
 type IAnimalController interface {
@@ -35,7 +37,10 @@ func (c *AnimalController) GetAnimals(w http.ResponseWriter, r *http.Request) {
 }
 
 func (c *AnimalController) GetSymptoms(w http.ResponseWriter, r *http.Request) {
-	response, err := c.service.Symptoms()
+	vars := mux.Vars(r)
+	//fmt.Fprintln(w, "AnimalId: %v\n", vars["animal_id"])
+	animalId := vars["animal_id"]
+	response, err := c.service.Symptoms(animalId)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))

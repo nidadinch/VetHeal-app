@@ -1,17 +1,19 @@
 package model
 
 type Animal struct {
-	Id          int    `json:"id"`
-	Name        string `json:"name"`
-	Animal_type string `json:"type"`
-	Order       int    `json:"order"`
-	Image       string `json:"image"`
+	Id           int    `json:"id"`
+	Name         string `json:"name"`
+	Animal_type  string `json:"type"`
+	Animal_order int    `json:"animal_order"`
+	Image        string `json:"image"`
 }
 
 type Symptom struct {
 	Id                int    `json:"id"`
 	Animal_id         int    `json:"animal_id"`
-	Desc              string `json:"desc"`
+	Description       string `json:"description"`
+	Created_at        string `json:"created_at"`
+	Updated_at        string `json:"updated_at"`
 	Initial_action_id int    `json:"initial_action_id"`
 }
 
@@ -45,7 +47,7 @@ type Result struct {
 
 type RiskCategory struct {
 	Name          string `json:"name"`
-	Desc          string `json:"desc"`
+	Description   string `json:"description"`
 	Text_1        string `json:"text_1"`
 	Iframe_desc   string `json:"iframe_desc"`
 	Iframe_text_1 string `json:"iframe_text_1"`

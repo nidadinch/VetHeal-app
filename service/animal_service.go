@@ -1,13 +1,14 @@
 package service
 
 import (
+	"fmt"
 	"seniorproject-backend/model"
 	"seniorproject-backend/repository"
 )
 
 type IAnimalService interface {
 	Animals() (*model.AnimalsResponse, error)
-	Symptoms() (*model.SymptomsResponse, error)
+	Symptoms(animalId string) (*model.SymptomsResponse, error)
 	Actionables() (*model.Actionable, error)
 }
 
@@ -25,22 +26,26 @@ func (s *AnimalService) Animals() (*model.AnimalsResponse, error) {
 	return &m, err
 }
 
-func (s *AnimalService) Symptoms() (*model.SymptomsResponse, error) {
-	sypmtoms, err := s.Repository.GetSymptoms()
+func (s *AnimalService) Symptoms(animalId string) (*model.SymptomsResponse, error) {
+	fmt.Println(animalId)
+	sypmtoms, err := s.Repository.GetSymptoms(animalId)
 	m := model.SymptomsResponse{}
 
 	for _, v := range sypmtoms {
 		m = append(m, *v)
 	}
 	return &m, err
+	//return &model.SymptomsResponse{}, nil
 }
 
 func (s *AnimalService) Actionables() (*model.Actionable, error) {
-	actionable, err := s.Repository.GetActionable()
-	m := model.Actionable{}
+	// actionable, err := s.Repository.GetActionable()
+	// m := model.Actionable{}
 
-	m = *actionable
-	return &m, err
+	// m = *actionable
+	// return &m, err
+	return &model.Actionable{}, nil
+
 }
 
 func NewAnimalService(repository repository.IAnimal) IAnimalService {
