@@ -1,6 +1,7 @@
 package service
 
 import (
+	"fmt"
 	"seniorproject-backend/model"
 	"seniorproject-backend/repository"
 )
@@ -8,7 +9,9 @@ import (
 type IAnimalService interface {
 	Animals() (*model.AnimalsResponse, error)
 	Symptoms(animalId string) (*model.SymptomsResponse, error)
-	Actionables(id string) (interface{}, error)
+	GetActionable(id string) (interface{}, error)
+	ActionableQuestion(id string) (*model.QuestionActionable, error)
+	ActionableResult(id string) (*model.ResultActionable, error)
 }
 
 type AnimalService struct {
@@ -35,19 +38,41 @@ func (s *AnimalService) Symptoms(animalId string) (*model.SymptomsResponse, erro
 	return &m, err
 }
 
-func (s *AnimalService) Actionables(id string) (interface{}, error) {
+func (s *AnimalService) GetActionable(id string) (interface{}, error) {
 	actionableType := s.Repository.GetActionableType(id)
+	fmt.Println(actionableType)
 
 	if actionableType == "Question" {
-		actionableQuestion, err := s.Repository.GetActionableQuestion(id)
-		return *actionableQuestion, err
+		fmt.Println("id: ", id)
+		fmt.Println("Question")
+		result, err := s.ActionableQuestion(id)
+		return result, err
 
 	} else {
-		actionableResult, err := s.Repository.GetActionableResult(id)
-		return *actionableResult, err
-	}
+		fmt.Println("Result")
+		fmt.Println("id: ", id)
+		result, err := s.ActionableResult(id)
+		return result, err
 
-	return nil, nil
+	}
+}
+
+func (s *AnimalService) ActionableQuestion(id string) (*model.QuestionActionable, error) {
+	actionableQuestion, err := s.Repository.GetQuestionActionable(id)
+
+	m := model.QuestionActionable{}
+	m = *actionableQuestion
+
+	return &m, err
+}
+
+func (s *AnimalService) ActionableResult(id string) (*model.ResultActionable, error) {
+	actionableResult, err := s.Repository.GetResultActionable(id)
+
+	m := model.ResultActionable{}
+	m = *actionableResult
+
+	return &m, err
 }
 
 func NewAnimalService(repository repository.IAnimal) IAnimalService {

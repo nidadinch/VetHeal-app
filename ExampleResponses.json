@@ -1,0 +1,39 @@
+{
+    "id": 3850,
+    "result": {
+      "additional_advice": null,
+      "first_aid_text": "* If it is practical to do so apply firm pressure to the wound with a clean cloth.\n* Do not try to feed your cat until you have checked with your vet practice that it is ok to do so.\n* Do not allow your cat to lick at or scratch the wound.\n* Try to keep your cat quiet and calm.\n",
+      "iframe_first_aid_text": null,
+      "iframe_problem_text": null,
+      "problem_text": "* Rapid blood loss puts your cat in immediate danger. Emergency treatment by a vet is required to stop the bleeding, to correct the effects on the circulation and to investigate and treat the underlying cause (the wound).\n* Severe blood loss can lead to shock, collapse, organ damage and death. Even apparently minor wounds can lead to significant blood loss over time, if untreated.\n* Once the bleeding has stopped, the clot will be fragile and the wound can reopen and bleed again, although this is usually less severe.\n",
+      "risk_category": {
+        "country_id": 1,
+        "created_at": "2018-11-28T13:59:01.000000Z",
+        "desc": "*You need to contact your vet immediately*\n\n",
+        "name": "Urgent",
+        "rating": "urgent",
+        "text_1": "* Your vet may give you telephone advice or may ask to see you.\n* Always telephone the vets before going to the practice. The vet may need to give you special instructions or an appointment time.\n* Take care. When pets are injured or ill they may accidentally bite or scratch.\n",
+        "updated_at": "2019-03-25T12:51:01.000000Z"
+      },
+      "travel_advice_text": "* Cats should be transported in appropriate, secure carrying boxes.\n"
+    },
+    "type": "Result"
+  }
+  {
+    "id": 3849,
+    "question": {
+      "actionable_id": 3849,
+      "options": [
+        {
+          "next_action_id": 3850,
+          "text": "Blood is trickling, streaming or pulsing out"
+        },
+        {
+          "next_action_id": 3851,
+          "text": "There are a few drops"
+        }
+      ],
+      "text": "How much blood is coming out?"
+    },
+    "type": "Question"
+  }
