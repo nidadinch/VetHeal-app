@@ -1,7 +1,7 @@
 package service
 
 import (
-	"fmt"
+
 	"seniorproject-backend/model"
 	"seniorproject-backend/repository"
 )
@@ -40,17 +40,12 @@ func (s *AnimalService) Symptoms(animalId string) (*model.SymptomsResponse, erro
 
 func (s *AnimalService) GetActionable(id string) (interface{}, error) {
 	actionableType := s.Repository.GetActionableType(id)
-	fmt.Println(actionableType)
 
 	if actionableType == "Question" {
-		fmt.Println("id: ", id)
-		fmt.Println("Question")
 		result, err := s.ActionableQuestion(id)
 		return result, err
 
 	} else {
-		fmt.Println("Result")
-		fmt.Println("id: ", id)
 		result, err := s.ActionableResult(id)
 		return result, err
 
