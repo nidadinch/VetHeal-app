@@ -1,6 +1,7 @@
 package server
 
 import (
+	"fmt"
 	"net/http"
 	"os"
 	"seniorproject-backend/controller"
@@ -37,5 +38,6 @@ func (s *Server) StartServer() error {
 		port = "8080"
 	}
 	err := http.ListenAndServe(":"+port, router)
+	fmt.Println("Service running on: ", port)
 	return err
 }
