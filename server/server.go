@@ -2,6 +2,7 @@ package server
 
 import (
 	"net/http"
+	"os"
 	"seniorproject-backend/controller"
 	"seniorproject-backend/repository"
 	"seniorproject-backend/service"
@@ -31,6 +32,10 @@ func (s *Server) StartServer() error {
 	// GET `/action/:id` = Returns `Actionable`
 	router.HandleFunc("/action/{id}", controller.GetActionable).Methods("GET")
 
-	err := http.ListenAndServe(":8000", router)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+	err := http.ListenAndServe(":"+port, router)
 	return err
 }
