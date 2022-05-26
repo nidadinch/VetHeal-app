@@ -1,1 +1,1 @@
-web: SeniorProject-Backend
+web: seniorproject-backend
