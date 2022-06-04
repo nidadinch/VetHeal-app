@@ -69,7 +69,7 @@ func (a *Animal) GetSymptoms(animalId string) ([]*model.Symptom, error) {
 
 func (a *Animal) GetActionableType(id string) string {
 	var action_type string
-	a.DB.QueryRow("SELECT action_type FROM actionable WHERE id = $1", id).Scan(&action_type)
+	a.DB.QueryRow("SELECT \"type\" FROM actionable WHERE id = $1", id).Scan(&action_type)
 
 	return action_type
 }
