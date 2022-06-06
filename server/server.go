@@ -2,6 +2,7 @@ package server
 
 import (
 	"net/http"
+	"os"
 	"seniorproject-backend/controller"
 	"seniorproject-backend/repository"
 	"seniorproject-backend/service"
@@ -32,6 +33,11 @@ func (s *Server) StartServer() error {
 	// GET `/action/:id` = Returns `Actionable`
 	router.HandleFunc("/action/{id}", controller.GetActionable).Methods("GET")
 
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{
 			"https://vet-heal.web.app",
@@ -45,6 +51,6 @@ func (s *Server) StartServer() error {
 
 	handler := c.Handler(router)
 
-	err := http.ListenAndServe(":8000", handler)
+	err := http.ListenAndServe(":"+port, handler)
 	return err
 }
