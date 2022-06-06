@@ -9,6 +9,7 @@ import (
 	"seniorproject-backend/service"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 type Server struct {
@@ -32,6 +33,7 @@ func (s *Server) StartServer() error {
 
 	// GET `/action/:id` = Returns `Actionable`
 	router.HandleFunc("/action/{id}", controller.GetActionable).Methods("GET")
+<<<<<<< HEAD
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -39,5 +41,22 @@ func (s *Server) StartServer() error {
 	}
 	err := http.ListenAndServe(":"+port, router)
 	fmt.Println("Service running on: ", port)
+=======
+	
+	c := cors.New(cors.Options{
+			AllowedOrigins: []string{
+				"https://vet-heal.web.app",
+				"http://vetheal.app",
+				"https://vetheal.app",
+				"http://localhost:3000",
+			},
+			AllowCredentials: true,
+			// Enable Debugging for testing, consider disabling in production
+	})
+
+	handler := c.Handler(router)
+
+	err := http.ListenAndServe(":8000", handler)
+>>>>>>> 7aad902bd2396197f04b548e94e5528723a2f3f3
 	return err
 }
