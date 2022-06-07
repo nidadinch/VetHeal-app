@@ -33,7 +33,7 @@ Sometimes we cannot reach veterinarians all the time and quickly. At the same ti
 
 The motivation for this research is to develop a animal health pre- diagnosis/monitoring system with deterministic method that can be easily controlled by animal owners without having deep knowledge of computer technology or the diseases of their pets. The system recommended in this article requires symptoms that the pet owner finds only from their pets, after which the system responds to some possible diseases that pets may have with a calculated rate of trust and the risk priority of the disease.
 
-![Workflow](/images/PetSymptom-Workflow%20-2.png)
+![Workflow](/images/Workflow-v2.drawio.png)
 
 ## 2. Material & Method
 
@@ -50,8 +50,7 @@ We have collected data from vets4pets, which was in raw format with nested JSON 
 ### 2.3. System & Database Design
 
 After normalizing the data and transforming it into the appropriate structure, the database tables and structure are adjusted according to the 3NF normalization rules.
-
-![DBTables](/images/Workflow-v2.drawio.png)
+![DBTables](/images/PetSymptom-Workflow%20-2.png)
 
 ## 3. Languages, Frameworks & Tools
 
