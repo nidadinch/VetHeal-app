@@ -1,3 +1,5 @@
+![Vetheal](/images/vetheal-logo-transparent.png)
+
 # VetHeal
 
 ## Animal Disease Diagnostic Support for Owners
@@ -5,6 +7,8 @@
 ### Akdeniz University - Institute of Sciences - Computer Science Engineering Department - Senior Project Design
 
 Live version can be found in: https://www.vetheal.app for frontend.
+
+![Demo](/images/demo.gif)
 
 Usually, an animal signals its owner when his health is at risk or he has a disease, exhibits unusual behavior or changes his body. However, owners who do not have in-depth knowledge of the pet's disease will be able to enter these symptoms into the application intended to be developed in this project, to see what the ailments in their pets are and their risk ratios.
 
@@ -31,6 +35,8 @@ Sometimes we cannot reach veterinarians all the time and quickly. At the same ti
 
 The motivation for this research is to develop a animal health pre- diagnosis/monitoring system with deterministic method that can be easily controlled by animal owners without having deep knowledge of computer technology or the diseases of their pets. The system recommended in this article requires symptoms that the pet owner finds only from their pets, after which the system responds to some possible diseases that pets may have with a calculated rate of trust and the risk priority of the disease.
 
+![Workflow](/images/PetSymptom-Workflow%20-2.png)
+
 ## 2. Material & Method
 
 During the implementation of this study, the data set was carefully prepared and different software development techniques were tried. At the same time, software languages and libraries that have become very popular lately and are very efficient in terms of performance have been used.
@@ -46,6 +52,8 @@ We have collected data from vets4pets, which was in raw format with nested JSON 
 ### 2.3. System & Database Design
 
 After normalizing the data and transforming it into the appropriate structure, the database tables and structure are adjusted according to the 3NF normalization rules.
+
+![DBTables](/images/Workflow-v2.drawio.png)
 
 ## 3. Languages, Frameworks & Tools
 
@@ -125,7 +133,7 @@ go tool cover -html=cover.out
 All dependencies can be found on package.json file. Also you can check the list:
 
 - [Go](https://github.com/golang/go)
-- [Go Mock](github.com/golang/mock v1.6.0)
+- [Go Mock](github.com/golang/mock)
 - [Pact Go](github.com/pact-foundation/pact-go)
 - [Testify](github.com/stretchr/testify)
 
