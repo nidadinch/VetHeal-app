@@ -4,9 +4,9 @@
 
 ## Animal Disease Diagnostic Support for Owners
 
-### Akdeniz University - Institute of Sciences
+## Akdeniz University - Institute of Sciences
 
-#### Computer Science Engineering Department - Senior Project Design
+## Computer Science Engineering Department - Senior Project Design
 
 Live version can be found in: https://www.vetheal.app for frontend.
 
