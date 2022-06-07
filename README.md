@@ -12,6 +12,7 @@ Usually, an animal signals its owner when his health is at risk or he has a dise
 The system works primarily by selecting an animal to determine which type of pet to diagnose. Next, the system provides symptom categories. The system will be able to ask the user whether there are other symptoms associated with these symptoms or questions about these symptoms. At the end of the questions, the system presents the priority of this problem, an overview of this problem, symptom assessments, and recommendations to the user.
 
 In this study, after the data was normalized and all database normalization applications were made, the back-end development was done using the test-driven development method. React framework, which is very popular, is used in the front-end. In this research, We’ve lived through the TDD cycle. We followed the test-code-refactor (or red-green-green) cycle all the way for the back-end.
+![How to use?](/images/howtouse.jpeg)
 
 ## 1. Introduction
 
