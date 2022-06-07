@@ -1,12 +1,8 @@
 ![Vetheal](/images/vetheal-logo-transparent.png)
 
-# VetHeal
-
 ## Animal Disease Diagnostic Support for Owners
 
-## Akdeniz University - Institute of Sciences
-
-## Computer Science Engineering Department - Senior Project Design
+## Akdeniz University - Institute of Sciences / Computer Science Engineering Department
 
 Live version can be found in: https://www.vetheal.app for frontend.
 
