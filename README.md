@@ -13,6 +13,8 @@ The system works primarily by selecting an animal to determine which type of pet
 
 In this study, after the data was normalized and all database normalization applications were made, the back-end development was done using the test-driven development method. React framework, which is very popular, is used in the front-end. In this research, We’ve lived through the TDD cycle. We followed the test-code-refactor (or red-green-green) cycle all the way for the back-end.
 
+## How to use?
+
 ![How to use?](/images/howtouse.jpeg)
 
 ## 1. Introduction
