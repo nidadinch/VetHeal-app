@@ -1,12 +1,11 @@
 ![Vetheal](/images/vetheal-logo-transparent.png)
+![Demo](/images/demo.gif)
 
 ## Animal Disease Diagnostic Support for Owners
 
 ### Akdeniz University - Institute of Sciences / Computer Science Engineering Department
 
 Live version can be found in: https://www.vetheal.app for frontend.
-
-![Demo](/images/demo.gif)
 
 Usually, an animal signals its owner when his health is at risk or he has a disease, exhibits unusual behavior or changes his body. However, owners who do not have in-depth knowledge of the pet's disease will be able to enter these symptoms into the application intended to be developed in this project, to see what the ailments in their pets are and their risk ratios.
 
