@@ -130,7 +130,6 @@ All dependencies can be found on package.json file. Also you can check the list:
 
 - [Go](https://github.com/golang/go)
 - [Go Mock](github.com/golang/mock)
-- [Pact Go](github.com/pact-foundation/pact-go)
 - [Testify](github.com/stretchr/testify)
 
 ### 3.3. Database
